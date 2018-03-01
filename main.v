@@ -24,7 +24,7 @@ module cliff_game(input clk, input[15:0] sw, input btnC, input btnU, input btnL,
 parameter STARTING_POS = 16'b0000_0001_1100_0000;
 parameter STARTING_IDX = 8'd7;
 
-regi[15:0] people = STARTING_POS;
+reg[15:0] people = STARTING_POS;
 reg[1:0] speed = 2'b0;
 reg[1:0] dir = 2'b0;
 reg[7:0] pos = STARTING_IDX;
