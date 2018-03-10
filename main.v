@@ -1,13 +1,5 @@
 `timescale 1ns / 1ps
 
-module my_debouncer(input clk, input btn, output out);
-reg ff1 = 1'b0, ff2 = 1'b0;
-always @(posedge clk) begin
-    ff1 <= btn;
-    ff2 <= ff1;
-end
-assign out = ff1 & (~ff2);
-endmodule
 module cliff_game(input clk, input[15:0] sw, input btnC, input btnU, input btnL, input btnR, input btnD, 
                   output[15:0] led, output[6:0] seg, output[3:0] an, output dp);
 parameter STARTING_POS = 16'b0000_0001_1100_0000;
