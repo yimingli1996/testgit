@@ -7,9 +7,6 @@ module var_clocktest(
 reg[31:0] count =  0;
 always @(posedge clkin) begin
     count <= (count == 0) ? period - 1 : count - 1;
-    clkout <= (count == 0) ? ~clkout : clkout;
-end
-endmodule
 
 
 
