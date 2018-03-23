@@ -65,18 +65,4 @@ always @(posedge dclk or posedge reset) begin
         started <= (start && !started) ? 1'b1 : started;
         if(speed_up) begin
             speed <= speed == 2 ? 2 : speed + 1;
-        end else if(speed_down)
-            speed <= speed == 0 ? 0 : speed - 1;
-        dir <= started ? (left ? 2'b1 : right ? 2'd2 : dir) : 2'b0;
-        shift <= shift ? 0 : (!started) && (left || right);
-        shift_dir <= left;
-    end
-    reset <= start && started;
-    boundaries <= (16'h8000 >> sw[15:13]) | (16'b1 << sw[2:0]);
-end
-
-always @(posedge clk) begin
-    lose <= started && (pos >= 15 - sw[15:13] || pos <= 0 + sw[2:0]);
-end
-
 
