@@ -79,29 +79,4 @@ always @(posedge clk) begin
     lose <= started && (pos >= 15 - sw[15:13] || pos <= 0 + sw[2:0]);
 end
 
-always @(posedge gclk or posedge reset or posedge lose) begin
-    if(reset) begin
-        people <= STARTING_POS;
-        pos <= STARTING_IDX;
-    end else if(lose) begin
-        people <= 16'b0;
-        pos <= 8'b0;
-    end else if(shift) begin
-        people <= shift_dir ? (pos<14 ? people << 1 : people) : (pos>1 ? people >> 1 : people);
-        pos <= shift_dir ? (pos<14 ? pos + 1 : pos) : (pos>1 ? pos - 1 : pos);
-    end else if(dir) begin
-        if(dir == 2'b1) begin
-            people <= people << 1;
-            pos <= pos + 1;
-        end else if(dir == 2'd2) begin
-            people <= people >> 1;
-            pos <= pos - 1;
-        end
-    end
-end
 
-assign led = lose ? {16{dclk}} : started ? people : people | boundaries;
-
-seg_disp debug_seg(clk_seg, lose?8'h76:lose, lose?8'h79:speed, lose?8'h83:dir, lose?8'h69:started, 1'b0, seg, an, dp);
-
-endmodule
