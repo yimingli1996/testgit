@@ -33,22 +33,5 @@ reg reset = 1'b0;
 reg lose = 1'b0;
 reg[15:0] boundaries = 16'b0;
 
-wire left;
-wire right;
-wire speed_up;
-wire speed_down;
-wire start;
-wire dclk;
-wire gclk;
-wire clk_seg;
 
-//var_clock(32'h20000, clk, clk_seg);
-//var_clock gameclk(started?((speed==2'b0) ? 32'd50000000 : ((speed==2'b1) ? 32'd12500000 : 32'd5000000)):32'd5000000, clk, gclk);
-//var_clock debclk(32'd5000000, clk, dclk); //10hz debounce
-
-//my_debouncer(dclk, btnU, speed_up);
-//my_debouncer(dclk, btnD, speed_down);
-//my_debouncer(dclk, btnL, left);
-//my_debouncer(dclk, btnR, right);
-//my_debouncer(dclk, btnC, start);
 
