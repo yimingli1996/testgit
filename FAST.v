@@ -1,0 +1,30 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 07.03.2017 23:09:46
+// Design Name: 
+// Module Name: FAST
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module FAST(input CLOCK, output reg SLOW = 0);
+
+    reg [23:0] COUNT= 24'b0 ; 
+    always @ (posedge CLOCK) begin
+        COUNT <= COUNT + 1;
+        SLOW <= (COUNT == 0) ? ~SLOW : SLOW;
+    end
+endmodule
