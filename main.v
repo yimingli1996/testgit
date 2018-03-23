@@ -52,9 +52,3 @@ wire clk_seg;
 //my_debouncer(dclk, btnR, right);
 //my_debouncer(dclk, btnC, start);
 
-reg shift = 1'b0;
-reg shift_dir = 1'b0;
-
-always @(posedge dclk or posedge reset) begin
-    if(reset) begin
-        started <= 1'b0;
