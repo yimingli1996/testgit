@@ -11,7 +11,7 @@ always @(posedge clkin) begin
 end
 endmodule
 
-module my_debouncertest(input clk, input btn, output out);
+module my_debouncertest(input clk, input btn
 
 
 
