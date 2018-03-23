@@ -12,6 +12,6 @@ end
 endmodule
 
 module my_debouncertest(input clk, input btn, output out);
-reg ff1 = 1'b0, ff2 = 1'b0;
+
 
 
