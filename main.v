@@ -58,11 +58,3 @@ reg shift_dir = 1'b0;
 always @(posedge dclk or posedge reset) begin
     if(reset) begin
         started <= 1'b0;
-        speed <= 1'b0;
-        dir <= 2'b0;
-        shift <= 1'b0;
-    end else begin
-        started <= (start && !started) ? 1'b1 : started;
-        if(speed_up) begin
-            speed <= speed == 2 ? 2 : speed + 1;
-
